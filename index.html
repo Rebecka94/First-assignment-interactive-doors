@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaktiv värld</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    <script src="main.js"></script>
+</head>
+<body>
+
+    <div id="mainFirst" class="firstSection">
+        <h1>Välkommen till min interaktiva värld</h1>
+        <p>I den här världen kommer du få flertalet val under vägens gång. <br> Tänk noggrant igenom dina val då det inte
+            finns
+            någon återvändo när du väl gjort ett val. Lycka till!</p>
+        <p id="firstText">Tryck på knappen ovan för att öppna dörren</p>
+        <p style="display: none;" id="secondText">Vill du gå in?</p>
+        <button id="firstBtn">Öppna dörren</button>
+       
+        <a href="game.html"><button id="yesBtn">JA</button></a>
+       <a href="index.html"><button id="noBtn">NEJ</button></a>
+       
+        <img id="doorClosed" src="Assets/Röd dörr.png" alt="">
+        <img style="display: none;" id="doorOpen" src="Assets/Röd dörr öppen.png" alt="">
+    </div>
+
+</body>
+</html>
