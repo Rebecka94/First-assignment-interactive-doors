@@ -1,1 +1,1 @@
-Ett interaktivt spel där du gör olika genom att gå igenom olika dörrar
+Ett interaktivt spel där du gör olika val genom att gå igenom olika dörrar
