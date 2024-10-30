@@ -7,10 +7,10 @@ const doorWorld = {
     },
 
     roomOne: {
-    description: "Välommen till ängen, du kan välja att antingen gå igenom den rosa dörren eller den blåa dörren",
+    description: "Välommen till ängen, du kan välja att antingen gå igenom den blåa dörren eller den rosa dörren",
     doors: {
-        doorOne: "Rosa dörren",
-        doorTwo: "Blåa dörren",
+        doorOne: "Blåa dörren",
+        doorTwo: "Rosa dörren",
     }
 },
 
@@ -23,10 +23,10 @@ roomTwo: {
 },
 
 roomThree: {
-    description: "Välommen till träsket, du kan välja att antingen gå igenom den lila dörren eller den svarta dörren",
+    description: "Välommen till träsket, du kan välja att antingen gå igenom den lila dörren eller den bruna dörren",
     doors: {
         doorOne: "Lila dörren",
-        doorTwo: "Svarta dörren",
+        doorTwo: "Bruna dörren",
     }
 },
 };
@@ -35,9 +35,23 @@ window.addEventListener("DOMContentLoaded", main);
 
 function main() {
     console.log("Start of the program");
-    setUpButtons();
-    currentRoom();
+    setUpDoorButtons();
 }
+
+function setUpDoorButtons() {
+    redDoor.onclick = openDoorFunction;
+    doorOpen.onclick = openDoorFunction;
+    blueDoor.onclick = openDoorFunction;
+    pinkDoor.onclick = openDoorFunction;
+    yellowDoor.onclick = openDoorFunction;
+    greenDoor.onclick = openDoorFunction;
+    purpleDoor.onclick = openDoorFunction;
+    brownDoor.onclick = openDoorFunction;
+};
+
+function openDoorFunction() {
+   console.log("Door is clicked")
+};
 
 
 
