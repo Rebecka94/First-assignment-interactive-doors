@@ -1,60 +1,47 @@
-const doorWorld = {
-    startRoom: {
-        description: "Välommen till dörrarnas värld, vill du gå igenom den första dörren?",
-        doors: {
-            doorOne: "Röda dörren",
-        }
-    },
-
-    roomOne: {
-    description: "Välommen till ängen, du kan välja att antingen gå igenom den blåa dörren eller den rosa dörren",
-    doors: {
-        doorOne: "Blåa dörren",
-        doorTwo: "Rosa dörren",
-    }
-},
-
-roomTwo: {
-    description: "Välommen till dungen, du kan välja att antingen gå igenom den gula dörren eller den gröna dörren",
-    doors: {
-        doorOne: "Gula dörren",
-        doorTwo: "Gröna dörren",
-    }
-},
-
-roomThree: {
-    description: "Välommen till träsket, du kan välja att antingen gå igenom den lila dörren eller den bruna dörren",
-    doors: {
-        doorOne: "Lila dörren",
-        doorTwo: "Bruna dörren",
-    }
-},
-};
-
 window.addEventListener("DOMContentLoaded", main);
 
 function main() {
     console.log("Start of the program");
-    setUpDoorButtons();
+    setUpButtons();
 }
 
-function setUpDoorButtons() {
-    redDoor.onclick = openDoorFunction;
-    doorOpen.onclick = openDoorFunction;
-    blueDoor.onclick = openDoorFunction;
-    pinkDoor.onclick = openDoorFunction;
-    yellowDoor.onclick = openDoorFunction;
-    greenDoor.onclick = openDoorFunction;
-    purpleDoor.onclick = openDoorFunction;
-    brownDoor.onclick = openDoorFunction;
+function setUpButtons() {
+    document.getElementById("redDoor").onclick = () => openDoorFunction("red");
+    document.getElementById("blueDoor").onclick = () => openDoorFunction("blue");
+    document.getElementById("pinkDoor").onclick = () => openDoorFunction("pink");
+    document.getElementById("yellowDoor").onclick = () => openDoorFunction("yellow");
+    document.getElementById("greenDoor").onclick = () => openDoorFunction("green");
+    document.getElementById("purpleDoor").onclick = () => openDoorFunction("purple");
+    document.getElementById("brownDoor").onclick = () => openDoorFunction("brown");
 };
 
-function openDoorFunction() {
-   console.log("Door is clicked")
-};
+function openDoorFunction(color) {
 
-
-
-
-
-
+    if (color === "red") {
+        document.getElementById("firstRoom").style.display = "flex";
+        document.getElementById("startingRoom").style.display = "none";
+    } else if (color === "blue") {
+        document.getElementById("thirdRoom").style.display = "flex";
+        document.getElementById("firstRoom").style.display = "none";
+    }
+    else if (color === "pink") {
+        document.getElementById("secondRoom").style.display = "flex";
+        document.getElementById("firstRoom").style.display = "none";
+    }
+    else if (color === "yellow") {
+        document.getElementById("startingRoom").style.display = "flex";
+        document.getElementById("secondRoom").style.display = "none";
+    }
+    else if (color === "green") {
+        document.getElementById("firstRoom").style.display = "flex";
+        document.getElementById("secondRoom").style.display = "none";
+    }
+    else if (color === "purple") {
+        document.getElementById("secondRoom").style.display = "flex";
+        document.getElementById("thirdRoom").style.display = "none";
+    }
+    else if (color === "brown") {
+        document.getElementById("endingRoom").style.display = "flex";
+        document.getElementById("thirdRoom").style.display = "none";
+    }
+}
