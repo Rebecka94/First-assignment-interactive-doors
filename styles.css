@@ -11,31 +11,35 @@ body {
     gap: 20px;
 }
 
-.startingRoom {
+#startingRoom {
     display: flex;
     justify-content: center;
 }
 
-#doorOpen {
-    display: none;
-}
-
-.firstRoom {
-    display: flex;
-    justify-content: space-evenly;
-    display: none;
-}
-
-.secondRoom {
+#firstRoom {
     display: flex;
     justify-content: space-evenly;
     gap: 30px;
     display: none;
 }
 
-.thirdRoom {
+#secondRoom {
     display: flex;
     justify-content: space-evenly;
     gap: 30px;
+    display: none;
+    
+}
+
+#thirdRoom {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 30px;
+    display: none;
+}
+
+#endingRoom {
+    display: flex;
+    justify-content: center;
     display: none;
 }
