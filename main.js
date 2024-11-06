@@ -1,7 +1,5 @@
 window.addEventListener("DOMContentLoaded", main);
 
-const goal = "brown";
-
 function main() {
     console.log("Start of the program");
     setUpButtons();
