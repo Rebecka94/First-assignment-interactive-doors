@@ -1,54 +1,24 @@
 body {
     margin: 0;
-    background-image: url(Assets/forrest.webp);
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: green;
 }
 
-.firstSection {
+#roomContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 20px;
 }
 
-.hiddenSection {
-    display: flex;
-    justify-content: center;
-    font-size: x-large;
-}
-
-
-#startingRoom {
-    display: flex;
-    justify-content: center;
-}
-
-#firstRoom {
+#doorContainer {
     display: flex;
     justify-content: space-evenly;
-    gap: 30px;
-    display: none;
+    margin-top: 3em;
 }
 
-#secondRoom {
+#buttonContainer {
     display: flex;
     justify-content: space-evenly;
-    gap: 30px;
-    display: none;
-    
-}
-
-#thirdRoom {
-    display: flex;
-    justify-content: space-evenly;
-    gap: 30px;
-    display: none;
-}
-
-#endingRoom {
-    display: flex;
-    justify-content: center;
-    display: none;
+    margin-top: 3em;
+    margin-bottom: 3em;
 }
