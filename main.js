@@ -26,11 +26,10 @@ function loadFirstRoom() {
   document.body.style.backgroundColor = "pink";
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
-  headingText.textContent = "ojojoj";
+  headingText.textContent = "Välkommen till det rosa rummet";
 
   const pText = document.createElement("p");
-  pText.textContent = "hejhejhej";
-
+  pText.textContent = "Vilken dörr ska du gå igenom härnäst?";
   roomContainer.append(headingText, pText);
 
   doorContainer.innerText = "";
@@ -38,7 +37,6 @@ function loadFirstRoom() {
   image1.src = "Assets/Red door.png";
   const image2 = document.createElement("img");
   image2.src = "Assets/blue door.png";
-
   doorContainer.append(image1, image2);
 
   buttonContainer.innerText = "";
@@ -49,7 +47,6 @@ function loadFirstRoom() {
   const button2 = document.createElement("button");
   button2.textContent = "Blåa dörren";
   button2.onclick = loadThirdRoom;
-
   buttonContainer.append(button1, button2);
 }
 
@@ -109,7 +106,6 @@ function loadThirdRoom() {
   const button2 = document.createElement("button");
   button2.textContent = "Bruna dörren";
   button2.onclick = loadFourthRoom;
-
   buttonContainer.append(button1, button2);
 }
 
@@ -133,7 +129,6 @@ function loadFourthRoom() {
   const button1 = document.createElement("button");
   button1.textContent = "Gula dörren";
   button1.onclick = loadFinalRoom;
-
   buttonContainer.append(button1);
 }
 
