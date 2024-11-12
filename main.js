@@ -5,6 +5,8 @@ function main() {
   loadStartScene();
 }
 
+const listOfItems = [];
+
 function loadStartScene() {
   roomContainer.innerText = "";
 
@@ -20,6 +22,8 @@ function loadStartScene() {
   button.onclick = loadFirstRoom;
 
   roomContainer.append(headingText, pText, button);
+
+  objectContainer.innerText = "";
 }
 
 function loadFirstRoom() {
@@ -48,6 +52,8 @@ function loadFirstRoom() {
   button2.textContent = "Blåa dörren";
   button2.onclick = loadThirdRoom;
   buttonContainer.append(button1, button2);
+
+  objectContainer.innerText = "";
 }
 
 function loadSecondRoom() {
@@ -76,8 +82,16 @@ function loadSecondRoom() {
   const button2 = document.createElement("button");
   button2.textContent = "Rosa dörren";
   button2.onclick = loadThirdRoom;
-
   buttonContainer.append(button1, button2);
+
+  objectContainer.innerText = "";
+  const object1 = document.createElement("button");
+  object1.textContent = "Nyckel"
+  object1.onclick = function() {
+    pickUpKey(object1);
+  }
+  
+  objectContainer.append(object1);
 }
 
 function loadThirdRoom() {
@@ -107,6 +121,8 @@ function loadThirdRoom() {
   button2.textContent = "Bruna dörren";
   button2.onclick = loadFourthRoom;
   buttonContainer.append(button1, button2);
+
+  objectContainer.innerText = "";
 }
 
 function loadFourthRoom() {
@@ -117,7 +133,8 @@ function loadFourthRoom() {
   headingText.textContent = "Välkommen till det lila rummet";
 
   const pText = document.createElement("p");
-  pText.textContent = "Du är nu i vid sista dörren. Men har du nyckeln för att kunna gå igenom?";
+  pText.textContent =
+    "Du är nu i vid sista dörren. Men har du nyckeln för att kunna gå igenom?";
   roomContainer.append(headingText, pText);
 
   doorContainer.innerText = "";
@@ -128,10 +145,14 @@ function loadFourthRoom() {
   buttonContainer.innerText = "";
   const button1 = document.createElement("button");
   button1.textContent = "Gula dörren";
-  button1.onclick = loadFinalRoom;
   buttonContainer.append(button1);
-}
 
+  if (listOfItems.includes("key")) {
+    button1.onclick = loadFinalRoom;
+  }
+
+  objectContainer.innerText = "";
+}
 function loadFinalRoom() {
   document.body.style.backgroundColor = "orange";
 
@@ -145,4 +166,10 @@ function loadFinalRoom() {
 
   doorContainer.innerText = "";
   buttonContainer.innerText = "";
+  objectContainer.innerText = "";
+}
+
+function pickUpKey(button) {
+  objectContainer.removeChild(button)
+  listOfItems.push("key")
 }
