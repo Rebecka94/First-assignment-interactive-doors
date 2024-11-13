@@ -39,19 +39,11 @@ function loadFirstRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Red door.png";
+  image1.onclick = loadSecondRoom
   const image2 = document.createElement("img");
   image2.src = "Assets/blue door.png";
+  image2.onclick = loadThirdRoom
   doorContainer.append(image1, image2);
-
-  buttonContainer.innerText = "";
-  const button1 = document.createElement("button");
-  button1.textContent = "Röda dörren";
-  button1.onclick = loadSecondRoom;
-
-  const button2 = document.createElement("button");
-  button2.textContent = "Blåa dörren";
-  button2.onclick = loadThirdRoom;
-  buttonContainer.append(button1, button2);
 
   objectContainer.innerText = "";
 }
@@ -70,27 +62,19 @@ function loadSecondRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Green door.png";
+  image1.onclick = loadFirstRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/pink door.png";
+  image2.onclick = loadThirdRoom
   doorContainer.append(image1, image2);
-
-  buttonContainer.innerText = "";
-  const button1 = document.createElement("button");
-  button1.textContent = "Gröna dörren";
-  button1.onclick = loadFirstRoom;
-
-  const button2 = document.createElement("button");
-  button2.textContent = "Rosa dörren";
-  button2.onclick = loadThirdRoom;
-  buttonContainer.append(button1, button2);
 
   objectContainer.innerText = "";
   const object1 = document.createElement("button");
-  object1.textContent = "Nyckel"
-  object1.onclick = function() {
+  object1.textContent = "Nyckel";
+  object1.onclick = function () {
     pickUpKey(object1);
-  }
-  
+  };
+
   objectContainer.append(object1);
 }
 
@@ -108,19 +92,11 @@ function loadThirdRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Purple door.png";
+  image1.onclick = loadSecondRoom
   const image2 = document.createElement("img");
   image2.src = "Assets/Brown door.png";
+  image2.onclick = loadFourthRoom
   doorContainer.append(image1, image2);
-
-  buttonContainer.innerText = "";
-  const button1 = document.createElement("button");
-  button1.textContent = "Lila dörren";
-  button1.onclick = loadSecondRoom;
-
-  const button2 = document.createElement("button");
-  button2.textContent = "Bruna dörren";
-  button2.onclick = loadFourthRoom;
-  buttonContainer.append(button1, button2);
 
   objectContainer.innerText = "";
 }
@@ -142,17 +118,16 @@ function loadFourthRoom() {
   image1.src = "Assets/Yellow door.png";
   doorContainer.append(image1);
 
-  buttonContainer.innerText = "";
-  const button1 = document.createElement("button");
-  button1.textContent = "Gula dörren";
-  buttonContainer.append(button1);
-
   if (listOfItems.includes("key")) {
-    button1.onclick = loadFinalRoom;
+    image1.onclick = loadFinalRoom;
+  } else {
+    image1.onclick = function () {
+      prompt("hitta nyckeln först");
+    };
   }
-
   objectContainer.innerText = "";
 }
+
 function loadFinalRoom() {
   document.body.style.backgroundColor = "orange";
 
@@ -170,6 +145,6 @@ function loadFinalRoom() {
 }
 
 function pickUpKey(button) {
-  objectContainer.removeChild(button)
-  listOfItems.push("key")
+  objectContainer.removeChild(button);
+  listOfItems.push("key");
 }
