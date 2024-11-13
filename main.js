@@ -46,6 +46,12 @@ function loadFirstRoom() {
   doorContainer.append(image1, image2);
 
   objectContainer.innerText = "";
+  const object1 = document.createElement("img");
+  object1.src = "Assets/crowbar.png";
+  object1.onclick = function () {
+    pickUpCrowbar(object1);
+  };
+  objectContainer.append(object1);
 }
 
 function loadSecondRoom() {
@@ -118,11 +124,26 @@ function loadFourthRoom() {
   image1.src = "Assets/Yellow door.png";
   doorContainer.append(image1);
 
-  if (listOfItems.includes("key")) {
+  if (listOfItems.includes("key") && listOfItems.includes("crowbar")) {
     image1.onclick = loadFinalRoom;
+  } else if (listOfItems.includes("key")) {
+    image1.onclick = function () {
+    const messageBox = document.createElement("button");
+      messageBox.textContent = "Du behöver också en crowbar för att öppna dörren";
+      messageBox.classList.add("messageBox");     
+      document.body.appendChild(messageBox); }
+  } else if (listOfItems.includes("crowbar")) {
+    image1.onclick = function () {
+    const messageBox = document.createElement("button");
+      messageBox.textContent = "Du behöver också en nyckel för att öppna dörren";
+      messageBox.classList.add("messageBox");     
+      document.body.appendChild(messageBox);}
   } else {
     image1.onclick = function () {
-      alert("hitta nyckeln först");
+      const messageBox = document.createElement("button");
+      messageBox.textContent = "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
+      messageBox.classList.add("messageBox");     
+      document.body.appendChild(messageBox);
     };    
   }
   objectContainer.innerText = "";
@@ -146,4 +167,9 @@ function loadFinalRoom() {
 function pickUpKey(img) {
   objectContainer.removeChild(img);
   listOfItems.push("key");
+}
+
+function pickUpCrowbar(img) {
+  objectContainer.removeChild(img);
+  listOfItems.push("crowbar");
 }
