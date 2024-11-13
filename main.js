@@ -123,7 +123,7 @@ function loadFourthRoom() {
   } else {
     image1.onclick = function () {
       prompt("hitta nyckeln först");
-    };
+    };    
   }
   objectContainer.innerText = "";
 }
@@ -140,7 +140,6 @@ function loadFinalRoom() {
   roomContainer.append(headingText, pText);
 
   doorContainer.innerText = "";
-  buttonContainer.innerText = "";
   objectContainer.innerText = "";
 }
 
