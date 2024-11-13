@@ -128,22 +128,22 @@ function loadFourthRoom() {
     image1.onclick = loadFinalRoom;
   } else if (listOfItems.includes("key")) {
     image1.onclick = function () {
-    const messageBox = document.createElement("button");
-      messageBox.textContent = "Du behöver också en crowbar för att öppna dörren";
-      messageBox.classList.add("messageBox");     
-      document.body.appendChild(messageBox); }
+    const messageContainer = document.createElement("button");
+      messageContainer.textContent = "Du behöver också en crowbar för att öppna dörren";
+      messageContainer.classList.add("messageContainer");     
+      document.body.appendChild(messageContainer); }
   } else if (listOfItems.includes("crowbar")) {
     image1.onclick = function () {
-    const messageBox = document.createElement("button");
-      messageBox.textContent = "Du behöver också en nyckel för att öppna dörren";
-      messageBox.classList.add("messageBox");     
-      document.body.appendChild(messageBox);}
+    const messageContainer = document.createElement("button");
+      messageContainer.textContent = "Du behöver också en nyckel för att öppna dörren";
+      messageContainer.classList.add("messageContainer");     
+      document.body.appendChild(messageContainer);}
   } else {
     image1.onclick = function () {
-      const messageBox = document.createElement("button");
-      messageBox.textContent = "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
-      messageBox.classList.add("messageBox");     
-      document.body.appendChild(messageBox);
+      const messageContainer = document.createElement("button");
+      messageContainer.textContent = "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
+      messageContainer.classList.add("messageContainer");     
+      document.body.appendChild(messageContainer);
     };    
   }
   objectContainer.innerText = "";
