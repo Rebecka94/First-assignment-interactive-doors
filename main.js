@@ -69,8 +69,8 @@ function loadSecondRoom() {
   doorContainer.append(image1, image2);
 
   objectContainer.innerText = "";
-  const object1 = document.createElement("button");
-  object1.textContent = "Nyckel";
+  const object1 = document.createElement("img");
+  object1.src = "Assets/Nyckel.png";
   object1.onclick = function () {
     pickUpKey(object1);
   };
@@ -122,7 +122,7 @@ function loadFourthRoom() {
     image1.onclick = loadFinalRoom;
   } else {
     image1.onclick = function () {
-      prompt("hitta nyckeln först");
+      alert("hitta nyckeln först");
     };    
   }
   objectContainer.innerText = "";
@@ -143,7 +143,7 @@ function loadFinalRoom() {
   objectContainer.innerText = "";
 }
 
-function pickUpKey(button) {
-  objectContainer.removeChild(button);
+function pickUpKey(img) {
+  objectContainer.removeChild(img);
   listOfItems.push("key");
 }
