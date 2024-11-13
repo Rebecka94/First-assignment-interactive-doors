@@ -48,6 +48,7 @@ function loadFirstRoom() {
   objectContainer.innerText = "";
   const object1 = document.createElement("img");
   object1.src = "Assets/crowbar.png";
+  object1.classList.add("objectItem1");
   object1.onclick = function () {
     pickUpCrowbar(object1);
   };
@@ -77,6 +78,7 @@ function loadSecondRoom() {
   objectContainer.innerText = "";
   const object1 = document.createElement("img");
   object1.src = "Assets/Nyckel.png";
+  object1.classList.add("objectItem2");
   object1.onclick = function () {
     pickUpKey(object1);
   };
@@ -129,13 +131,13 @@ function loadFourthRoom() {
   } else if (listOfItems.includes("key")) {
     image1.onclick = function () {
     const messageContainer = document.createElement("button");
-      messageContainer.textContent = "Du behöver också en crowbar för att öppna dörren";
+      messageContainer.textContent = "Du har lyckats vrida om låset på dörren med hjälp av nyckeln. Men det verkar som att den har rostat igen och ändå inte går att öppna.. Hmm, Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan komma till hjälp för att bända upp dörren";
       messageContainer.classList.add("messageContainer");     
       document.body.appendChild(messageContainer); }
   } else if (listOfItems.includes("crowbar")) {
     image1.onclick = function () {
     const messageContainer = document.createElement("button");
-      messageContainer.textContent = "Du behöver också en nyckel för att öppna dörren";
+      messageContainer.textContent = "Att använda en kofot är en bra ide då dörren är gammal och rostig. Men det verkar ändå som att dörren sitter fast med ett lås. Se om du också kan hitta en nyckel i någon av de andra rummen";
       messageContainer.classList.add("messageContainer");     
       document.body.appendChild(messageContainer);}
   } else {
