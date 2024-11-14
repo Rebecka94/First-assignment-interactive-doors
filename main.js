@@ -8,6 +8,7 @@ function main() {
 const listOfItems = [];
 
 function loadStartScene() {
+  document.body.style.background = "linear-gradient(90deg, #b8e6a3, #4CAF50)";
   roomContainer.innerText = "";
 
   const headingText = document.createElement("h1");
@@ -27,10 +28,10 @@ function loadStartScene() {
 }
 
 function loadFirstRoom() {
-  document.body.style.backgroundColor = "pink";
+  document.body.style.background = "linear-gradient(90deg, #FFf104, #fffc7c)";
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
-  headingText.textContent = "Välkommen till det rosa rummet";
+  headingText.textContent = "Välkommen till det gula rummet";
 
   const pText = document.createElement("p");
   pText.textContent = "Vilken dörr ska du gå igenom härnäst?";
@@ -56,11 +57,10 @@ function loadFirstRoom() {
 }
 
 function loadSecondRoom() {
-  document.body.style.backgroundColor = "yellow";
-
+  document.body.style.background = "linear-gradient(90deg, #f34336, #a32f2f)";
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
-  headingText.textContent = "Välkommen till det gula rummet";
+  headingText.textContent = "Välkommen till det röda rummet";
 
   const pText = document.createElement("p");
   pText.textContent = "Vilken dörr ska du gå igenom härnäst?";
@@ -77,7 +77,7 @@ function loadSecondRoom() {
 
   objectContainer.innerText = "";
   const object1 = document.createElement("img");
-  object1.src = "Assets/Nyckel.png";
+  object1.src = "Assets/Key.svg";
   object1.classList.add("objectItem2");
   object1.onclick = function () {
     pickUpKey(object1);
@@ -87,11 +87,11 @@ function loadSecondRoom() {
 }
 
 function loadThirdRoom() {
-  document.body.style.backgroundColor = "red";
+  document.body.style.background = "linear-gradient(90deg, #f48fb1, #e91e63)";
 
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
-  headingText.textContent = "Välkommen till det röda rummet";
+  headingText.textContent = "Välkommen till det rosa rummet";
 
   const pText = document.createElement("p");
   pText.textContent = "Vilken dörr ska du gå igenom härnäst?";
@@ -110,7 +110,7 @@ function loadThirdRoom() {
 }
 
 function loadFourthRoom() {
-  document.body.style.backgroundColor = "purple";
+  document.body.style.background = "linear-gradient(90deg, #9575cd, #7e57c2)";
 
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
@@ -152,18 +152,18 @@ function loadFourthRoom() {
 }
 
 function loadFinalRoom() {
-  document.body.style.backgroundColor = "orange";
+  document.body.style.background = "linear-gradient(90deg, #ffc74c, #ff9000)";
 
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
-  headingText.textContent = "Välkommen till det sista rummet";
-
-  const pText = document.createElement("p");
-  pText.textContent = "Grattis, du tog dig i mål!";
-  roomContainer.append(headingText, pText);
+  headingText.textContent = "Grattis, du tog dig i mål!";
+  headingText.classList.add("headingText")
+  roomContainer.append(headingText);
 
   doorContainer.innerText = "";
   objectContainer.innerText = "";
+
+  console.log(listOfItems)
 }
 
 function pickUpKey(img) {
