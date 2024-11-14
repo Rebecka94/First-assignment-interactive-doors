@@ -27,6 +27,8 @@ function loadStartScene() {
   roomContainer.append(headingText, pText, button);
 
   objectContainer.innerText = "";
+  doorContainer.innerText = "";
+  returnBtnContainer.innerText = ""
 }
 
 function loadFirstRoom() {
@@ -54,7 +56,7 @@ function loadFirstRoom() {
   object1.classList.add("objectItem1");
   object1.onclick = function () {
     pickUpCrowbar(object1);
-    saveObjectsToLocalStorage()
+    saveObjectsToLocalStorage();
   };
   objectContainer.append(object1);
 }
@@ -86,7 +88,6 @@ function loadSecondRoom() {
     pickUpKey(object1);
     saveObjectsToLocalStorage();
   };
-
   objectContainer.append(object1);
 }
 
@@ -129,6 +130,12 @@ function loadFourthRoom() {
   const image1 = document.createElement("img");
   image1.src = "Assets/Yellow door.png";
   doorContainer.append(image1);
+
+  returnBtnContainer.innerText = "";
+  const returnBtn = document.createElement("button")
+  returnBtn.textContent = "Tryck här för att börja om"
+  returnBtn.onclick = loadStartScene;
+  returnBtnContainer.append(returnBtn);
 
   if (listOfItems.includes("key") && listOfItems.includes("crowbar")) {
     image1.onclick = loadFinalRoom;
@@ -177,6 +184,7 @@ function loadFinalRoom() {
 
   doorContainer.innerText = "";
   objectContainer.innerText = "";
+  returnBtnContainer.innerText = ""
 
   console.log(listOfItems)
 }
