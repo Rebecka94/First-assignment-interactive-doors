@@ -3,6 +3,8 @@ window.addEventListener("DOMContentLoaded", main);
 function main() {
   console.log("Start of the program");
   loadStartScene();
+  saveObjectsToLocalStorage();
+  loadObjectsFromLocalStorage();
 }
 
 const listOfItems = [];
@@ -52,6 +54,7 @@ function loadFirstRoom() {
   object1.classList.add("objectItem1");
   object1.onclick = function () {
     pickUpCrowbar(object1);
+    saveObjectsToLocalStorage()
   };
   objectContainer.append(object1);
 }
@@ -81,6 +84,7 @@ function loadSecondRoom() {
   object1.classList.add("objectItem2");
   object1.onclick = function () {
     pickUpKey(object1);
+    saveObjectsToLocalStorage();
   };
 
   objectContainer.append(object1);
@@ -133,21 +137,32 @@ function loadFourthRoom() {
     const messageContainer = document.createElement("button");
       messageContainer.textContent = "Du har lyckats vrida om låset på dörren med hjälp av nyckeln. Men det verkar som att den har rostat igen och ändå inte går att öppna.. Hmm, Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan komma till hjälp för att bända upp dörren";
       messageContainer.classList.add("messageContainer");     
-      document.body.appendChild(messageContainer); }
+      document.body.appendChild(messageContainer);
+      messageContainer.onclick = function () {
+        messageContainer.style.display = "none";
+      };
+     };
   } else if (listOfItems.includes("crowbar")) {
     image1.onclick = function () {
     const messageContainer = document.createElement("button");
       messageContainer.textContent = "Att använda en kofot är en bra ide då dörren är gammal och rostig. Men det verkar ändå som att dörren sitter fast med ett lås. Se om du också kan hitta en nyckel i någon av de andra rummen";
-      messageContainer.classList.add("messageContainer");     
-      document.body.appendChild(messageContainer);}
+      messageContainer.classList.add("messageContainer");
+      document.body.appendChild(messageContainer);     
+      messageContainer.onclick = function () {
+        messageContainer.style.display = "none";
+      }
+    }
   } else {
     image1.onclick = function () {
       const messageContainer = document.createElement("button");
       messageContainer.textContent = "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
       messageContainer.classList.add("messageContainer");     
       document.body.appendChild(messageContainer);
+      messageContainer.onclick = function () {
+        messageContainer.style.display = "none";
+        };
+      };
     };    
-  }
   objectContainer.innerText = "";
 }
 
@@ -169,9 +184,24 @@ function loadFinalRoom() {
 function pickUpKey(img) {
   objectContainer.removeChild(img);
   listOfItems.push("key");
+  saveObjectsToLocalStorage();
 }
 
 function pickUpCrowbar(img) {
   objectContainer.removeChild(img);
   listOfItems.push("crowbar");
+  saveObjectsToLocalStorage();
+}
+
+function saveObjectsToLocalStorage() {
+  localStorage.setItem("listOfItems", JSON.stringify(listOfItems))
+}
+
+function loadObjectsFromLocalStorage() {
+  const savedItems = localStorage.getItem("listOfItems");
+  if (savedItems) {
+    listOfItems = JSON.parse(savedItems);
+  } else {
+    listOfItems = [];
+  }
 }
