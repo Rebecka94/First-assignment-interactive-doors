@@ -1,5 +1,10 @@
 window.addEventListener("DOMContentLoaded", main);
 
+/**
+ * Huvudfunktionen som körs när dokumentet laddats.
+ * Ansvarar för att starta programmet genom att ladda startsidan.
+ */
+
 function main() {
   console.log("Start of the program");
   loadStartScene();
@@ -7,6 +12,9 @@ function main() {
 
 const listOfItems = [];
 
+/**
+ * Laddar startsidan med instruktioner och startknappen.
+ */
 function loadStartScene() {
   document.body.style.background = "linear-gradient(90deg, #b8e6a3, #4CAF50)";
   roomContainer.innerText = "";
@@ -26,9 +34,12 @@ function loadStartScene() {
 
   objectContainer.innerText = "";
   doorContainer.innerText = "";
-  returnBtnContainer.innerText = ""
+  returnBtnContainer.innerText = "";
 }
 
+/**
+ * Laddar det första rummet där vi har två alternativa vägval som representeras som dörrar.
+ */
 function loadFirstRoom() {
   document.body.style.background = "linear-gradient(90deg, #FFf104, #fffc7c)";
   roomContainer.innerText = "";
@@ -42,10 +53,10 @@ function loadFirstRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Red door.png";
-  image1.onclick = loadSecondRoom
+  image1.onclick = loadSecondRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/blue door.png";
-  image2.onclick = loadThirdRoom
+  image2.onclick = loadThirdRoom;
   doorContainer.append(image1, image2);
 
   objectContainer.innerText = "";
@@ -59,6 +70,9 @@ function loadFirstRoom() {
   objectContainer.append(object1);
 }
 
+/**
+ * Laddar det andra rummet där vi har två alternativa vägval som representeras som dörrar.
+ */
 function loadSecondRoom() {
   document.body.style.background = "linear-gradient(90deg, #f34336, #a32f2f)";
   roomContainer.innerText = "";
@@ -75,7 +89,7 @@ function loadSecondRoom() {
   image1.onclick = loadFirstRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/pink door.png";
-  image2.onclick = loadThirdRoom
+  image2.onclick = loadThirdRoom;
   doorContainer.append(image1, image2);
 
   objectContainer.innerText = "";
@@ -89,6 +103,9 @@ function loadSecondRoom() {
   objectContainer.append(object1);
 }
 
+/**
+ * Laddar det tredje rummet där vi har två alternativa vägval som representeras som dörrar.
+ */
 function loadThirdRoom() {
   document.body.style.background = "linear-gradient(90deg, #f48fb1, #e91e63)";
 
@@ -103,15 +120,19 @@ function loadThirdRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Purple door.png";
-  image1.onclick = loadSecondRoom
+  image1.onclick = loadSecondRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/Brown door.png";
-  image2.onclick = loadFourthRoom
+  image2.onclick = loadFourthRoom;
   doorContainer.append(image1, image2);
 
   objectContainer.innerText = "";
 }
 
+/**
+ * Laddar det fjärde rummet.
+ * Hanterar olika meddelanden beroende på vilka objekt spelaren har samlat på sig.
+ */
 function loadFourthRoom() {
   document.body.style.background = "linear-gradient(90deg, #7775cd, #9e57c2)";
 
@@ -130,8 +151,8 @@ function loadFourthRoom() {
   doorContainer.append(image1);
 
   returnBtnContainer.innerText = "";
-  const returnBtn = document.createElement("button")
-  returnBtn.textContent = "Tryck här för att börja om"
+  const returnBtn = document.createElement("button");
+  returnBtn.textContent = "Tryck här för att börja om";
   returnBtn.onclick = loadStartScene;
   returnBtnContainer.append(returnBtn);
 
@@ -139,70 +160,90 @@ function loadFourthRoom() {
     image1.onclick = loadFinalRoom;
   } else if (listOfItems.includes("key")) {
     image1.onclick = function () {
-    const messageContainer = document.createElement("button");
-      messageContainer.textContent = "Du har lyckats vrida om låset på dörren med hjälp av nyckeln. Men det verkar som att den har rostat igen och ändå inte går att öppna.. Hmm, Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan komma till hjälp för att bända upp dörren";
-      messageContainer.classList.add("messageContainer");     
+      const messageContainer = document.createElement("button");
+      messageContainer.textContent =
+        "Du har lyckats vrida om låset på dörren med hjälp av nyckeln. Men det verkar som att den har rostat igen och ändå inte går att öppna.. Hmm, Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan komma till hjälp för att bända upp dörren";
+      messageContainer.classList.add("messageContainer");
       document.body.appendChild(messageContainer);
       messageContainer.onclick = function () {
         messageContainer.style.display = "none";
       };
-     };
+    };
   } else if (listOfItems.includes("crowbar")) {
     image1.onclick = function () {
-    const messageContainer = document.createElement("button");
-      messageContainer.textContent = "Att använda en kofot är en bra ide då dörren är gammal och rostig. Men det verkar ändå som att dörren sitter fast med ett lås. Se om du också kan hitta en nyckel i någon av de andra rummen";
+      const messageContainer = document.createElement("button");
+      messageContainer.textContent =
+        "Att använda en kofot är en bra ide då dörren är gammal och rostig. Men det verkar ändå som att dörren sitter fast med ett lås. Se om du också kan hitta en nyckel i någon av de andra rummen";
       messageContainer.classList.add("messageContainer");
-      document.body.appendChild(messageContainer);     
+      document.body.appendChild(messageContainer);
       messageContainer.onclick = function () {
         messageContainer.style.display = "none";
-      }
-    }
+      };
+    };
   } else {
     image1.onclick = function () {
       const messageContainer = document.createElement("button");
-      messageContainer.textContent = "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
-      messageContainer.classList.add("messageContainer");     
+      messageContainer.textContent =
+        "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
+      messageContainer.classList.add("messageContainer");
       document.body.appendChild(messageContainer);
       messageContainer.onclick = function () {
         messageContainer.style.display = "none";
-        };
       };
-    };    
+    };
+  }
   objectContainer.innerText = "";
 }
 
+/**
+ * Laddar det sista rummet och visar ett gratulationsmeddelande till spelaren.
+ */
 function loadFinalRoom() {
   document.body.style.background = "linear-gradient(90deg, #ffc74c, #ff9000)";
 
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
   headingText.textContent = "Grattis, du tog dig i mål!";
-  headingText.classList.add("headingText")
+  headingText.classList.add("headingText");
   roomContainer.append(headingText);
 
   doorContainer.innerText = "";
   objectContainer.innerText = "";
-  returnBtnContainer.innerText = ""
+  returnBtnContainer.innerText = "";
 
-  console.log(listOfItems)
+  console.log(listOfItems);
 }
 
+/**
+ * Lägger till nyckeln i listan över insamlade föremål och sparar till localstorage.
+ * @param {HTMLImageElement} img - Bilden för nyckeln som plockas upp.
+ */
 function pickUpKey(img) {
   objectContainer.removeChild(img);
   listOfItems.push("key");
   saveObjectsToLocalStorage();
 }
 
+/**
+ * Lägger till nyckeln i listan över insamlade föremål och sparar till localstorage.
+ * @param {HTMLImageElement} img - Bilden för nyckeln som plockas upp.
+ */
 function pickUpCrowbar(img) {
   objectContainer.removeChild(img);
   listOfItems.push("crowbar");
   saveObjectsToLocalStorage();
 }
 
+/**
+ * Sparar listan över insamlade föremål till lokal lagring.
+ */
 function saveObjectsToLocalStorage() {
-  localStorage.setItem("listOfItems", JSON.stringify(listOfItems))
+  localStorage.setItem("listOfItems", JSON.stringify(listOfItems));
 }
 
+/**
+ * Laddar listan över insamlade föremål från lokal lagring.
+ */
 function loadObjectsFromLocalStorage() {
   const savedItems = localStorage.getItem("listOfItems");
   if (savedItems) {
