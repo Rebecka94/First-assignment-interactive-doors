@@ -201,6 +201,8 @@ roomContainer.innerText = ""
 const headingText = document.createElement("h1")
 headingText.textContent = "Du har öppnat den sista dörren men där gömde sig ett farligt troll. Använd antingen nyckeln eller kofoten för att besegra trollet"
 headingText.style.backgroundColor = "green"
+headingText.style.width = "80%"
+headingText.style.boxShadow = "5px 6px 5px black";
 roomContainer.append(headingText);
 
 lastChoiceButtons.innerText = ""
@@ -209,11 +211,15 @@ const button1 = document.createElement("button");
   button1.style.boxShadow = "2px 2px 2px black";
   button1.style.width = "80px"
   button1.style.height = "30px"
+  button1.style.backgroundColor = "#8B0000"
+  button1.style.color = "white"
   const button2 = document.createElement("button");
   button2.textContent = "Kofoten";
   button2.style.boxShadow = "2px 2px 2px black";
   button2.style.width = "80px"
   button2.style.height = "30px"
+  button2.style.backgroundColor = "#00008B"
+  button2.style.color = "white"
 lastChoiceButtons.append(button1, button2)
 
 if (button2) {
@@ -276,14 +282,14 @@ function pickUpCrowbar(img) {
 }
 
 /**
- * Sparar listan över insamlade föremål till lokal lagring.
+ * Sparar listan över insamlade föremål till localstorage.
  */
 function saveObjectsToLocalStorage() {
   localStorage.setItem("listOfItems", JSON.stringify(listOfItems));
 }
 
 /**
- * Laddar listan över insamlade föremål från lokal lagring.
+ * Laddar listan över insamlade föremål från localstorage.
  */
 function loadObjectsFromLocalStorage() {
   const savedItems = localStorage.getItem("listOfItems");
