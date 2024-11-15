@@ -113,7 +113,7 @@ function loadThirdRoom() {
 }
 
 function loadFourthRoom() {
-  document.body.style.background = "linear-gradient(90deg, #9575cd, #7e57c2)";
+  document.body.style.background = "linear-gradient(90deg, #7775cd, #9e57c2)";
 
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
