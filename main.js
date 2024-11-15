@@ -24,7 +24,7 @@ function loadStartScene() {
 
   const pText = document.createElement("p");
   pText.textContent =
-    "I den här världen kommer du gå igenom ett antal dörrar. Vissa dörrar tar dig till helt fantastiska ställen medans andra kommer att få dig att tvivla på dina val. Tryck på den första dörren för att starta spelet";
+    "I den här världen kommer du gå igenom ett antal dörrar som leder till olika rum. Målet är att ta sig till sista dörren och öppna den . Tryck på den första dörren för att starta spelet";
 
   const button = document.createElement("button");
   button.textContent = "Börja";
@@ -160,36 +160,15 @@ function loadFourthRoom() {
     image1.onclick = loadFinalRoom;
   } else if (listOfItems.includes("key")) {
     image1.onclick = function () {
-      const messageContainer = document.createElement("button");
-      messageContainer.textContent =
-        "Du har lyckats vrida om låset på dörren med hjälp av nyckeln. Men det verkar som att den har rostat igen och ändå inte går att öppna.. Hmm, Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan komma till hjälp för att bända upp dörren";
-      messageContainer.classList.add("messageContainer");
-      document.body.appendChild(messageContainer);
-      messageContainer.onclick = function () {
-        messageContainer.style.display = "none";
-      };
+      alert("Du har lyckats vrida om låset på dörren med hjälp av en nyckeln. Men det verkar ändå som att den har rostat igen och ändå inte går att öppna.. Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan hjälpa dig att bända upp dörren")
     };
   } else if (listOfItems.includes("crowbar")) {
     image1.onclick = function () {
-      const messageContainer = document.createElement("button");
-      messageContainer.textContent =
-        "Att använda en kofot är en bra ide då dörren är gammal och rostig. Men det verkar ändå som att dörren sitter fast med ett lås. Se om du också kan hitta en nyckel i någon av de andra rummen";
-      messageContainer.classList.add("messageContainer");
-      document.body.appendChild(messageContainer);
-      messageContainer.onclick = function () {
-        messageContainer.style.display = "none";
-      };
+    alert("Att använda en kofot är en bra ide då dörren är gammal och rostig. Men det verkar ändå som att dörren sitter fast med ett lås. Se om du också kan hitta en nyckel i någon av de andra rummen");
     };
   } else {
     image1.onclick = function () {
-      const messageContainer = document.createElement("button");
-      messageContainer.textContent =
-        "Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit?";
-      messageContainer.classList.add("messageContainer");
-      document.body.appendChild(messageContainer);
-      messageContainer.onclick = function () {
-        messageContainer.style.display = "none";
-      };
+      alert("Hmmmm.. Dörren är låst. Det verkar som du kanske glömt något på vägen hit? Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något föremål som hjälper dig att öppna dörren");
     };
   }
   objectContainer.innerText = "";
