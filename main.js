@@ -22,6 +22,7 @@ function loadStartScene() {
   const headingText = document.createElement("h1");
   headingText.textContent = "Välkommen till dörrarnas värld";
   headingText.style.color = "#454545"
+  headingText.style.fontSize = "50px"
 
   const pText = document.createElement("p");
   pText.textContent =
@@ -29,7 +30,9 @@ function loadStartScene() {
 
   const button = document.createElement("button");
   button.textContent = "Börja";
-  button.style.boxShadow = "2px 5px 2px gray";
+  button.style.boxShadow = "2px 2px 2px black";
+  button.style.width = "50px"
+  button.style.height = "30px"
   button.onclick = loadFirstRoom;
 
   roomContainer.append(headingText, pText, button);
@@ -161,7 +164,10 @@ function loadFourthRoom() {
 
   returnBtnContainer.innerText = "";
   const returnBtn = document.createElement("button");
-  returnBtn.textContent = "Tryck här för att börja om";
+  returnBtn.textContent = "Börja om";
+  returnBtn.style.boxShadow = "2px 2px 2px black";
+  returnBtn.style.width = "80px"
+  returnBtn.style.height = "30px"
   returnBtn.onclick = loadStartScene;
   returnBtnContainer.append(returnBtn);
 
