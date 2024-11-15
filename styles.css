@@ -1,5 +1,7 @@
 body {
     margin: 0;
+    font-family: "Geist Mono", serif;
+    font-optical-sizing: auto;
 }
 
 #roomContainer {
