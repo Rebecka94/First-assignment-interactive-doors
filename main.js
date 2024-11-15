@@ -172,7 +172,7 @@ function loadFourthRoom() {
   returnBtnContainer.append(returnBtn);
 
   if (listOfItems.includes("key") && listOfItems.includes("crowbar")) {
-    image1.onclick = loadFinalRoom;
+    image1.onclick = loadFifthRoom;
   } else if (listOfItems.includes("key")) {
     image1.onclick = function () {
       alert("Du har lyckats vrida om låset på dörren med hjälp av en nyckeln. Men det verkar ändå som att den har rostat igen och ändå inte går att öppna.. Gå tillbaka till någon av de tidigare rummen för att se om du kan hitta något annat föremål som kan hjälpa dig att bända upp dörren")
@@ -190,6 +190,46 @@ function loadFourthRoom() {
 }
 
 /**
+ * Laddar det femte rummet.
+ * Erbjuder spelaren två val och hanterar olika meddelande beroende på valet.
+ */
+function loadFifthRoom() {
+  document.body.style.backgroundImage = "url('Assets/cave.webp')";
+  document.body.style.backgroundSize = "cover";
+
+roomContainer.innerText = ""
+const headingText = document.createElement("h1")
+headingText.textContent = "Du har öppnat den sista dörren men där gömde sig ett farligt troll. Använd antingen nyckeln eller kofoten för att besegra trollet"
+headingText.style.backgroundColor = "green"
+roomContainer.append(headingText);
+
+lastChoiceButtons.innerText = ""
+const button1 = document.createElement("button");
+  button1.textContent = "Nyckeln";
+  button1.style.boxShadow = "2px 2px 2px black";
+  button1.style.width = "80px"
+  button1.style.height = "30px"
+  const button2 = document.createElement("button");
+  button2.textContent = "Kofoten";
+  button2.style.boxShadow = "2px 2px 2px black";
+  button2.style.width = "80px"
+  button2.style.height = "30px"
+lastChoiceButtons.append(button1, button2)
+
+if (button2) {
+  button2.onclick = loadFinalRoom
+} if (button1) {
+  button1.onclick = function () {
+    alert("En nyckel är bra till mycket. Men för att besegra ett troll så behöver du välja ett annat objekt")
+  }
+};
+
+doorContainer.innerText = "";
+objectContainer.innerText = "";
+returnBtnContainer.innerText = "";
+}
+
+/**
  * Laddar det sista rummet och visar ett gratulationsmeddelande till spelaren.
  */
 function loadFinalRoom() {
@@ -197,13 +237,17 @@ function loadFinalRoom() {
 
   roomContainer.innerText = "";
   const headingText = document.createElement("h1");
-  headingText.textContent = "Grattis, du tog dig i mål!";
+  headingText.textContent = "Grattis! Du tog dig igenom alla dörrar och besegrade det farliga trollet";
+  headingText.style.fontSize = "50px"
   headingText.classList.add("headingText");
+
+
   roomContainer.append(headingText);
 
   doorContainer.innerText = "";
   objectContainer.innerText = "";
   returnBtnContainer.innerText = "";
+  lastChoiceButtons.innerText = ""
 
   console.log(listOfItems);
 }
