@@ -196,12 +196,13 @@ function loadFourthRoom() {
 function loadFifthRoom() {
   document.body.style.backgroundImage = "url('Assets/cave.webp')";
   document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundPosition = "center";
 
 roomContainer.innerText = ""
 const headingText = document.createElement("h1")
 headingText.textContent = "Du har öppnat den sista dörren men där gömde sig ett farligt troll. Använd antingen nyckeln eller kofoten för att besegra trollet"
 headingText.style.backgroundColor = "green"
-headingText.style.width = "80%"
+headingText.style.width = "90%"
 headingText.style.boxShadow = "5px 6px 5px black";
 roomContainer.append(headingText);
 
