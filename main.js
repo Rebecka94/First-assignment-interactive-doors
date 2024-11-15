@@ -21,13 +21,15 @@ function loadStartScene() {
 
   const headingText = document.createElement("h1");
   headingText.textContent = "Välkommen till dörrarnas värld";
+  headingText.style.color = "#454545"
 
   const pText = document.createElement("p");
   pText.textContent =
-    "I den här världen kommer du gå igenom ett antal dörrar som leder till olika rum. Målet är att ta sig till sista dörren och öppna den . Tryck på den första dörren för att starta spelet";
+    "I den här världen kommer du gå igenom ett antal dörrar som leder till olika rum. Målet är att ta sig till sista dörren och öppna den . Tryck på knappen för att starta spelet";
 
   const button = document.createElement("button");
   button.textContent = "Börja";
+  button.style.boxShadow = "2px 5px 2px gray";
   button.onclick = loadFirstRoom;
 
   roomContainer.append(headingText, pText, button);
@@ -53,9 +55,11 @@ function loadFirstRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Red door.png";
+  image1.style.boxShadow = "2px 1px 3px black";
   image1.onclick = loadSecondRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/blue door.png";
+  image2.style.boxShadow = "2px 1px 3px black";
   image2.onclick = loadThirdRoom;
   doorContainer.append(image1, image2);
 
@@ -86,9 +90,11 @@ function loadSecondRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Green door.png";
+  image1.style.boxShadow = "2px 1px 3px black";
   image1.onclick = loadFirstRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/pink door.png";
+  image2.style.boxShadow = "2px 1px 3px black";
   image2.onclick = loadThirdRoom;
   doorContainer.append(image1, image2);
 
@@ -120,9 +126,11 @@ function loadThirdRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Purple door.png";
+  image1.style.boxShadow = "2px 1px 3px black";
   image1.onclick = loadSecondRoom;
   const image2 = document.createElement("img");
   image2.src = "Assets/Brown door.png";
+  image2.style.boxShadow = "2px 1px 3px black";
   image2.onclick = loadFourthRoom;
   doorContainer.append(image1, image2);
 
@@ -148,6 +156,7 @@ function loadFourthRoom() {
   doorContainer.innerText = "";
   const image1 = document.createElement("img");
   image1.src = "Assets/Yellow door.png";
+  image1.style.boxShadow = "2px 1px 3px black";
   doorContainer.append(image1);
 
   returnBtnContainer.innerText = "";
