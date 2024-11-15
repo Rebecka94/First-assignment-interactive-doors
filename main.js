@@ -241,8 +241,11 @@ function loadFinalRoom() {
   headingText.style.fontSize = "50px"
   headingText.classList.add("headingText");
 
-
-  roomContainer.append(headingText);
+  const finalImg = document.createElement("img");
+  finalImg.src = "Assets/congrats.jpeg";
+  finalImg.classList.add("finalImg")
+  
+  roomContainer.append(headingText, finalImg);
 
   doorContainer.innerText = "";
   objectContainer.innerText = "";

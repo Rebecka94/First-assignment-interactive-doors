@@ -35,7 +35,7 @@ body {
 
 .headingText {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translate(-50%, -50%); 
 }
@@ -51,4 +51,10 @@ body {
     justify-content: center;
     gap: 20px;
     margin-top: 400px;
+}
+
+.finalImg {
+    position: absolute;
+    top: 350px;
+    width: 500px;
 }
