@@ -1,4 +1,4 @@
-# 🟦 Interactive Doors
+# 🚪 Interactive Doors
 
 ## 📖 Description
 **Interactive Doors** is a simple, interactive game where you make different choices by clicking on colorful doors. Each door leads you to a new room, and your goal is to reach the final room.  
@@ -11,7 +11,7 @@ You can try the game directly in your browser by clicking on this link: https://
 
 ---
 
-## 🧰 Features
+## Features
 - Multiple colorful doors to choose from  
 - Interactive navigation between rooms  
 - Simple item collection mechanic to unlock the final door  
