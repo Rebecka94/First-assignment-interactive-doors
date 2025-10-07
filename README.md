@@ -1,8 +1,30 @@
-# Title
-Interactive Doors
+# 🟦 Interactive Doors
 
-## Description
-Detta är ett interaktivt spel där du gör olika val med hjälp av att trycka på olika färgglada dörrar. Dörrarna leder dig till olika rum och målet är att ta sig fram till det sista rummet. För att ta sig till det sista rummet behövs två objekt för att låsa upp den sista dörren.
+## 📖 Description
+**Interactive Doors** is a simple, interactive game where you make different choices by clicking on colorful doors. Each door leads you to a new room, and your goal is to reach the final room.  
+To unlock the last door, you must collect **two special objects** hidden in different rooms.
 
-### Link to: Github-Pages
-https://rebecka94.github.io/First-assignment-interactive-doors/
+This was my **first project using JavaScript**, created to explore and experiment with basic interactivity, event handling, and DOM manipulation.
+
+## 🌐 Demo
+You can try the game directly in your browser by clicking on this link: https://rebecka94.github.io/First-assignment-interactive-doors/
+
+---
+
+## 🧰 Features
+- Multiple colorful doors to choose from  
+- Interactive navigation between rooms  
+- Simple item collection mechanic to unlock the final door  
+- Built entirely with **HTML, CSS, and JavaScript**
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to clone and run the project locally:
+
+To run the project locally, simply clone the repository:
+
+```bash
+git clone https://github.com/your-username/interactive-doors.git
+```
